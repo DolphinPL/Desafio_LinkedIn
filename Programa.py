@@ -53,7 +53,7 @@ def ver_tarefas():
     if comando == 1:
         main()
     else: 
-        print("Programa Finalizado!!!")
+        sair()
     
     
 #Criar Função para Atualizar tarefas
@@ -63,6 +63,9 @@ def ver_tarefas():
 #Criar Função para Deletar tarefas que foram completadas
 
 #Criar Função para Sair
+def sair():
+    print("Programa Finalizado!!!")
+
 
 def main():
     limpar_terminal()
@@ -78,5 +81,7 @@ def main():
 
     if validar == 2:
         ver_tarefas()
+    if validar == 6:
+        sair()
 
 main()
