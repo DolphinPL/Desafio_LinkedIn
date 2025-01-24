@@ -37,7 +37,6 @@ def entrada_numerica(prompt):
 
 #Criar Função para Ver tarefa(s) adicionada
 def ver_tarefas():
-    limpar_terminal()
     print("******** TAREFAS ********\n")
     tamanho_pendentes = len(tarefas_pendentes) 
     for indice, tarefa in enumerate(tarefas_pendentes):
@@ -45,17 +44,7 @@ def ver_tarefas():
     for indice, tarefa in enumerate(tarefas_concluidas):
         print(f"[\u2714] {indice + 1 + tamanho_pendentes} - {tarefa}")
     print("\nCOMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA")
-    comando = entrada_numerica("\n ")
-    while comando > 2 or comando < 1:
-        print("Comando inválido. Por favor, tente novamente!")
-        comando = entrada_numerica("\nSelecione uma ação (Digite o número correspondente): ")
-    
-    if comando == 1:
-        main()
-    else: 
-        sair()
-    
-    
+
 #Criar Função para Atualizar tarefas
 
 #Criar Função para Completar tarefas
@@ -80,8 +69,20 @@ def main():
         validar = entrada_numerica("\nSelecione uma ação (Digite o número correspondente): ")
 
     if validar == 2:
+        limpar_terminal()
         ver_tarefas()
+        comando = entrada_numerica("\n ")
+        while comando > 2 or comando < 1:
+            limpar_terminal()
+            print("Comando inválido. Por favor, tente novamente!\n")
+            ver_tarefas()
+            comando = entrada_numerica("\nSelecione uma ação (Digite o número correspondente): ")
+        if comando == 1:
+            main()
+        else: 
+            sair()
+            
     if validar == 6:
-        sair()
+            sair()
 
 main()
