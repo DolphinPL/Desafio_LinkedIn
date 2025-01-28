@@ -77,7 +77,7 @@ def att_tarefas():
     limpar_terminal()
     print("Tarefas atualizadas com SUCESSO!")
     
-#Criar Função para Completar tarefas
+#Função para Completar tarefas
 def concluir_tarefas():
     limpar_terminal()
     print("******** TAREFAS CONCLUÍDAS ********\n")
@@ -139,7 +139,7 @@ def main():
             print("Comando inválido. Por favor, tente novamente!\n")
             concluir_tarefas()
             comando = entrada_numerica("\nSelecione o número referente a tarefa que deseja concluir:")
-        if comando == 0:
+        if comando == 0: #Para retornar ao menu principal
             limpar_terminal()
             main()
         else: 
