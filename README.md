@@ -2,12 +2,11 @@
 
 
 > **Descrição breve**: Tem como objetivo realizar o desafio proposto pelo usuário João Guilherme do LinkedIn.
-
-> Link do desafio: https://www.linkedin.com/posts/jo%C3%A3o-guilherme-123924207_sugest%C3%A3o-de-exerc%C3%ADcio-l%C3%B3gica-de-programa%C3%A7%C3%A3o-activity-7286856397793759232-ejow/?utm_source=share&utm_medium=member_android
+> [Link do desafio](https://www.linkedin.com/posts/jo%C3%A3o-guilherme-123924207_sugest%C3%A3o-de-exerc%C3%ADcio-l%C3%B3gica-de-programa%C3%A7%C3%A3o-activity-7286856397793759232-ejow/?utm_source=share&utm_medium=member_android)
 
 ## 📌 Índice
 
-- [Sobre o Projeto](#sobre-o-projeto)
+- **Sobre o Projeto**
    - Elaborar um gerenciador de tarefas com as seguintes funcionalidades:
      - Adicionar tarefa
      - Ver tarefa(s) adicionada
@@ -15,14 +14,14 @@
      - Completar tarefas
      - Deletar tarefas que foram completadas
      - Sair
-- [Tecnologias Utilizadas](
+- **Tecnologias Utilizadas**
   - Python
-- [Como Usar]
+- **Como Usar**
   - Execução simples, intuitiva e baseada em comandos numéricos
-- [Funcionalidades]
+- **Funcionalidades**
   - Funcionalidade limitada por não estar vinculada a um banco de dados, no entanto, atende os pedidos realizados no desafio.
-- [Contato]
-  - LinkedIn: https://www.linkedin.com/in/rodolfopl/
+- **Contato**
+  - [LinkedIn](https://www.linkedin.com/in/rodolfopl/)
 
 ---
 
