@@ -19,6 +19,7 @@ tarefas_pendentes = ["Lavar roupa", "Estudar Python", "Estudar inglês"]
 tarefas_concluidas =["Ir na academia"]
 menu = ["Adicionar tarefa", "Ver tarefa(s)", "Atualizar tarefas", "Completar tarefas", "Deletar tarefas que foram completadas", "Sair"]
 aux_tarefas_pendentes = tarefas_pendentes[:]
+aux_tarefas_concluidas = tarefas_concluidas[:]
 
 #Função para mostrar o menu
 def menu_principal():
@@ -38,6 +39,7 @@ def entrada_numerica(prompt):
 def adicionar_tarefa():
     global aux_tarefas_pendentes
     nova_tarefa = ""
+    
     print("******** ADICIONAR TAREFA ********\n")
     print("COMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA\n")
     nova_tarefa = input("Escreva qual tarefa deseja adicionar: ")
@@ -65,15 +67,25 @@ def ver_tarefas():
 #Criar Função para Atualizar tarefas
 def att_tarefas():
     global tarefas_pendentes
+    global tarefas_concluidas
     global aux_tarefas_pendentes
+    global aux_tarefas_concluidas
+    
     tarefas_pendentes = aux_tarefas_pendentes[:]
+    tarefas_concluidas = aux_tarefas_concluidas[:]
+    
     limpar_terminal()
     print("Tarefas atualizadas com SUCESSO!")
     
 #Criar Função para Completar tarefas
 
 #Criar Função para Deletar tarefas que foram completadas
-
+def deletar_concluidas():
+    global tarefas_concluidas
+    global aux_tarefas_concluidas
+    tarefas_concluidas = []
+    aux_tarefas_concluidas = tarefas_concluidas[:]
+    
 #Criar Função para Sair
 def sair():
     print("Programa Finalizado!!!") #Apenas exibe a mensagem para informar o usuário 
@@ -113,6 +125,11 @@ def main():
     elif validar == 3:
         att_tarefas()
         main()      
+
+    elif validar == 5:
+        deletar_concluidas()
+        print("As tarefas concluídas foram excluídas.")
+        main()
 
     elif validar == 6:
             sair()
