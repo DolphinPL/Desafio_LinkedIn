@@ -18,6 +18,7 @@ def limpar_terminal():
 tarefas_pendentes = ["Lavar roupa", "Estudar Python", "Estudar inglês"]
 tarefas_concluidas =["Ir na academia"]
 menu = ["Adicionar tarefa", "Ver tarefa(s)", "Atualizar tarefas", "Completar tarefas", "Deletar tarefas que foram completadas", "Sair"]
+aux_tarefas_pendentes = tarefas_pendentes[:]
 
 #Função para mostrar o menu
 def menu_principal():
@@ -35,19 +36,21 @@ def entrada_numerica(prompt):
 
 #Criar Função para adicionar tarefa
 def adicionar_tarefa():
+    global aux_tarefas_pendentes
     nova_tarefa = ""
     print("******** ADICIONAR TAREFA ********\n")
     print("COMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA\n")
     nova_tarefa = input("Escreva qual tarefa deseja adicionar: ")
     
     if nova_tarefa == "1":
+        limpar_terminal()
         main()
     elif nova_tarefa == "2":
         sair()
     else:
-        tarefas_pendentes.append(nova_tarefa)
+        aux_tarefas_pendentes.append(nova_tarefa)
         print(f"A tarefa {nova_tarefa} foi adicionada com SUCESSO!")
-        main()
+        return aux_tarefas_pendentes
 
 #Criar Função para Ver tarefa(s) adicionada
 def ver_tarefas():
@@ -60,7 +63,13 @@ def ver_tarefas():
     print("\nCOMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA\n")
 
 #Criar Função para Atualizar tarefas
-
+def att_tarefas():
+    global tarefas_pendentes
+    global aux_tarefas_pendentes
+    tarefas_pendentes = aux_tarefas_pendentes[:]
+    limpar_terminal()
+    print("Tarefas atualizadas com SUCESSO!")
+    
 #Criar Função para Completar tarefas
 
 #Criar Função para Deletar tarefas que foram completadas
@@ -71,7 +80,6 @@ def sair():
     exit()
 
 def main():
-    limpar_terminal()
 
     menu_principal()
 
@@ -85,8 +93,9 @@ def main():
     if validar == 1:
         limpar_terminal()
         adicionar_tarefa()
+        main()
         
-    if validar == 2:
+    elif validar == 2:
         limpar_terminal()
         ver_tarefas()
         comando = entrada_numerica("\n ")
@@ -96,11 +105,17 @@ def main():
             ver_tarefas()
             comando = entrada_numerica("\nSelecione uma ação (Digite o número correspondente): ")
         if comando == 1:
+            limpar_terminal()
             main()
         else: 
             sair()
             
-    if validar == 6:
+    elif validar == 3:
+        att_tarefas()
+        main()      
+
+    elif validar == 6:
             sair()
 
+limpar_terminal()
 main()
