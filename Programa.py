@@ -17,7 +17,7 @@ def limpar_terminal():
 #Criar variáveis 
 tarefas_pendentes = ["Lavar roupa", "Estudar Python", "Estudar inglês"]
 tarefas_concluidas =["Ir na academia"]
-menu = ["Adicionar tarefa", "Ver tarefa(s) adicionada", "Atualizar tarefas", "Completar tarefas", "Deletar tarefas que foram completadas", "Sair"]
+menu = ["Adicionar tarefa", "Ver tarefa(s)", "Atualizar tarefas", "Completar tarefas", "Deletar tarefas que foram completadas", "Sair"]
 
 #Função para mostrar o menu
 def menu_principal():
@@ -34,6 +34,20 @@ def entrada_numerica(prompt):
             print(f"Comando invalido. Por favor, tente novamente!")
 
 #Criar Função para adicionar tarefa
+def adicionar_tarefa():
+    nova_tarefa = ""
+    print("******** ADICIONAR TAREFA ********\n")
+    print("COMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA\n")
+    nova_tarefa = input("Escreva qual tarefa deseja adicionar: ")
+    
+    if nova_tarefa == "1":
+        main()
+    elif nova_tarefa == "2":
+        sair()
+    else:
+        tarefas_pendentes.append(nova_tarefa)
+        print(f"A tarefa {nova_tarefa} foi adicionada com SUCESSO!")
+        main()
 
 #Criar Função para Ver tarefa(s) adicionada
 def ver_tarefas():
@@ -43,7 +57,7 @@ def ver_tarefas():
         print(f"[ ] {indice+ 1} - {tarefa}")
     for indice, tarefa in enumerate(tarefas_concluidas):#Coloca o sinal de check nas tarefas que ja foram concluídas
         print(f"[\u2714] {indice + 1 + tamanho_pendentes} - {tarefa}") 
-    print("\nCOMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA")
+    print("\nCOMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA\n")
 
 #Criar Função para Atualizar tarefas
 
@@ -54,7 +68,7 @@ def ver_tarefas():
 #Criar Função para Sair
 def sair():
     print("Programa Finalizado!!!") #Apenas exibe a mensagem para informar o usuário 
-
+    exit()
 
 def main():
     limpar_terminal()
@@ -68,6 +82,10 @@ def main():
         menu_principal()
         validar = entrada_numerica("\nSelecione uma ação (Digite o número correspondente): ")
 
+    if validar == 1:
+        limpar_terminal()
+        adicionar_tarefa()
+        
     if validar == 2:
         limpar_terminal()
         ver_tarefas()
