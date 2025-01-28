@@ -21,13 +21,13 @@ menu = ["Adicionar tarefa", "Ver tarefa(s) adicionada", "Atualizar tarefas", "Co
 
 #Função para mostrar o menu
 def menu_principal():
-    print("\n******** MENU PRINCIPAL ********\n")
+    print("\n******** MENU PRINCIPAL ********\n")#Realiza apenas a impressão do menu
     for indice, tarefa in enumerate(menu):
         print(f"{indice+1} - {tarefa}")
  
 #Função para aceitar apenas valor numérico
 def entrada_numerica(prompt):
-    while True:
+    while True:#Caso a entrada não for numérica ira retornar erro 
         try: 
             return int(input(prompt))
         except:
@@ -39,10 +39,10 @@ def entrada_numerica(prompt):
 def ver_tarefas():
     print("******** TAREFAS ********\n")
     tamanho_pendentes = len(tarefas_pendentes) 
-    for indice, tarefa in enumerate(tarefas_pendentes):
+    for indice, tarefa in enumerate(tarefas_pendentes):#Tarefas não concluídas ficam com a coluna de check vazia
         print(f"[ ] {indice+ 1} - {tarefa}")
-    for indice, tarefa in enumerate(tarefas_concluidas):
-        print(f"[\u2714] {indice + 1 + tamanho_pendentes} - {tarefa}")
+    for indice, tarefa in enumerate(tarefas_concluidas):#Coloca o sinal de check nas tarefas que ja foram concluídas
+        print(f"[\u2714] {indice + 1 + tamanho_pendentes} - {tarefa}") 
     print("\nCOMANDOS\n[1] - RETORNAR AO MENU \n[2] - FINALIZAR PROGRAMA")
 
 #Criar Função para Atualizar tarefas
@@ -53,7 +53,7 @@ def ver_tarefas():
 
 #Criar Função para Sair
 def sair():
-    print("Programa Finalizado!!!")
+    print("Programa Finalizado!!!") #Apenas exibe a mensagem para informar o usuário 
 
 
 def main():
@@ -72,7 +72,7 @@ def main():
         limpar_terminal()
         ver_tarefas()
         comando = entrada_numerica("\n ")
-        while comando > 2 or comando < 1:
+        while comando > 2 or comando < 1:#A função ficará repetindo até o usuário colocar um comando válido
             limpar_terminal()
             print("Comando inválido. Por favor, tente novamente!\n")
             ver_tarefas()
